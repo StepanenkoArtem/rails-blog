@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Article < ApplicationRecord
+  include Visible
+  has_many :comments
+
   validates :title, presence: true
   validates :body, length: { minimum: 30 }
 end
