@@ -1,3 +1,15 @@
-<h2><%= @article.title%></h2>
-<div><%= @article.body%></div>
-<%= link_to  "View all", articles_path %>
+<div class="col-sm-9">
+  <div class="rounded border bg-light m-3 p-1">
+    <h2><%= @article.title%></h2>
+    <div><%= @article.body%></div>
+  </div>
+
+<div class="rounded border m-3 p-1">
+<h3 class="h6 text-muted">Comments</h3>
+<%= render @article.comments %>
+</div>
+
+<%= render "comments/form" %>
+
+  <%= link_to  "View all", articles_path, class: "badge badge-secondary" %>
+</div>

@@ -2,7 +2,7 @@
     <ul class="list-unstyled">
         <% @articles.each do |article| %>
         <li class="border rounded bg-light p-3 m-1">
-        <div><%= article.title %></div>
+        <div class='h5'><%= link_to article.title, article_path(article) %></div>
         <div><%= truncate article.body, length: 280%>
         </div>
         <%= link_to  "Edit",
