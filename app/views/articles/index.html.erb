@@ -1,11 +1,21 @@
-<h1><%= @hello %></h1>
-<ul>
-    <% @articles.each do |article| %>
-    <li>
-    <%= article.title %>
-    <%= link_to  "Edit", edit_article_path(article) %>
-    <%= link_to  "Delete", article_path(article), method: :delete, data: { confirm: "Are your sure?" } %>
-    </li>
-    <% end %>
-</ul>
-<%= link_to  "Add new article", new_article_path %>
+<div class="col-sm">
+    <ul class="list-unstyled">
+        <% @articles.each do |article| %>
+        <li class="border rounded bg-light p-3 m-1">
+        <div><%= article.title %></div>
+        <div><%= truncate article.body, length: 280%>
+        </div>
+        <%= link_to  "Edit",
+            edit_article_path(article),
+            class: "badge badge-success",
+            type: "button" %>
+        <%= link_to  "Delete", article_path(article),
+            method: :delete, 
+            data: { confirm: "Are your sure?" },
+            class: "badge badge-danger",
+            type: "button" %>
+        </li>
+        <% end %>
+    </ul>
+    <%= link_to  "Add new article", new_article_path, class: "btn btn-success" %>
+</div>
